@@ -26,3 +26,6 @@ You have the option to write a review for this book , the application check if y
 
 API : 
 To use the api of the application you don’t have to be logged in, just use ‘/api/ISBN’ where isbn is the isbn of the book and if the book exist in by data base you will get json object with the information for this book , if the isbn don’t exit it the data base you will receive json object with error 403 
+
+import.py : 
+imports books.csv content to data base
