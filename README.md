@@ -1,31 +1,22 @@
-# Project 1
+# Project 2
 
 Web Programming with Python and JavaScript
-Project1 by Alexy Kotliar 22 Oct 2019
-Book review web application build with Python flask, html , and postgres SQL
+Project2 by Alexy Kotliar 06 Dec 2019
+Chat application build with Python flask, html , Javascript, soketIO
 
-Login page:
-On the main page is the login page where you can login with existing user name or register 
-The application checks if the user name and password are correct and redirect you to the search page if it is 
-And if not redirect you to an error.html with an error 'the user name or password is incorrect'
+when going to the page for the first time you promped to enter a user name that will be on every message that a user sends
+and if you trying to enter a user name that alrady exist you will see a message asking to select another user name .
 
-Register page:
-On the register page you i ask the user to select a user name and a password and 2 optional parameters are full name and email 
-of if the user have a full name it will be displayed at his review and if he don’t have a full name just an email then the email will be displayed and if the user don’t have it then the user name will be displayed.
-The register page also checks if user with the same user name exist, and if it does redirect you to a error.html with an error 'user name exist please select another'.
+chat room page : 
+on the left side you will see a list of all chat rooms and a form to add a new chat room , if you will try to enter a chat room that
+alrady exist it will alert you to select a difrent name for your chat .
+when sending a message in a chat room, every message is displayed in a bootstrap card with a title including user name that sent the message and the time stamp when the message was sent . 
 
-Search page: 
-On the search page if a user try to access it and he is not logged in he will be redirected to error.html with the error 'please login to search ‘.
-If the user is logged in in the nav bar he will have the option to log out.
-In the search page user have 4 options to search by: isbn, author, title and year.
-the search use LIKE % % so you can search by partial name and it’s not key sensitive so you can search for uppercase and lower case letters.
+closing the application :
+after login I'm storring the user name in localSstorage and the room you are in so the next time you visit the application it wont promt you to enter a user agin and just load from local storage and take you back to the same room you was in before closing the application. 
 
-book page : 
-Here I’m using goodreads.com API to display Average rating , number of reviews and number of ratings on goodreads.com . 
-You have the option to write a review for this book , the application check if you already did a review for this book , if yes it will redirect you to error.html with the error ‘you already reviewed this book ’ and if not you will be redirected back to the same book page and you will see your review on the bottom of the page .
+logout : 
+on the top of the chat room there is an option to log out from the chat so I'm deleting the localStorage for user name and the next time you will go to the chat you will be prompt to enter user name agin .
 
-API : 
-To use the api of the application you don’t have to be logged in, just use ‘/api/ISBN’ where isbn is the isbn of the book and if the book exist in by data base you will get json object with the information for this book , if the isbn don’t exit it the data base you will receive json object with error 403 
-
-import.py : 
-imports books.csv content to data base
+personal toch : 
+in the chat by the message form you have an option to send a picture as a message , the image will get uploaded to the application with a generated name so you can send the same image number of times.
