@@ -1,0 +1,42 @@
+{% extends "template.html" %}
+
+{% block heading %}
+    {{ headline }}
+{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto  ">
+        <div class="card card-signin my-5">
+          <div class="card-body">
+            <h5 class="card-title text-center">Welcome to Book Lovers</h5>
+            <hr>
+            <form  action="{{ url_for('check_login') }}" method="post">
+              <div class="form-label-group">
+                <input  name="user_name" class="form-control" placeholder="User name">
+                <label>User name</label>
+              </div>
+
+              <div class="form-label-group">
+                <input name="password" type="password"  class="form-control" placeholder="Password" required>
+                <label>Password</label>
+              </div>
+
+
+              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+              <hr>
+              New user ? <a href="{{ url_for('register') }}">register</a>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+</div>
+
+{% endblock %}
