@@ -1,0 +1,38 @@
+{% extends "template.html" %}
+
+{% block body %}
+
+
+<div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 mx-auto  ">
+        <div class="card card-signin my-5">
+  <p class="lead">Here is there resolts we can fint for you search </p>
+  <hr class="my-4">
+
+    <table style="width:100%">
+  <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Year</th>
+    <th>ISBN code</th>
+      <th>See book details</th>
+  </tr>
+        {% for i in resolt %}
+  <tr>
+    <td>{{ i.title }}</td>
+    <td>{{ i.author }}</td>
+    <td>{{ i.year }}</td>
+      <td>{{ i.isbn }}</td>
+      <td><a href="/book/{{i.isbn}}">reviews</a></td>
+      {% endfor%}
+
+
+</table>
+            {{resolt.column_descriptions}}
+
+</div>
+      </div>
+</div>
+
+
+{% endblock %}
