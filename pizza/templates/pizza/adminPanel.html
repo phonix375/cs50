@@ -1,0 +1,23 @@
+{% extends "pizza/base.html"%}
+{% block title %} CS50 Pizzeria {% endblock %}
+{% block body %}
+
+<span hidden id='token'>{% csrf_token %}</span>
+
+<script src="/static/adminPanel.js"></script>
+
+<!--my orders form-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 ">
+            {% with id="37" %}
+            {{ orders.orders.id.status }}
+            {% endwith %}
+            </div>
+    </div>
+</div>
+
+<p id="blat"></p>
+
+
+{% endblock %}
