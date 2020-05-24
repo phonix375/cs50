@@ -1,0 +1,26 @@
+{% extends "run/base.html" %}
+{% load static %}
+
+{% block body %}
+this is the friends page<br>
+this is the list of your friends
+</div>
+<div class='container'>
+     <div class="row">
+          send a friend request<br>
+<form action="{% url 'send_request'%}" method="post">
+     {% csrf_token %}<br>
+     <div class="form-group">
+          <label for="exampleFormControlInput1">Friends email address</label>
+          <input type="text" name="email" class="form-control" id="username">
+     </div>
+     <div class="form-group">
+          <label for="exampleFormControlInput1">pesonal note</label>
+          <input type="text" name="note" class="form-control" id="username">
+     </div>
+     <input type="submit" class="form-control" id="submit">
+</form>
+</div>
+</div>
+
+{% endblock %}
