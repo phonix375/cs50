@@ -1,25 +1,32 @@
-# Project 3
+# Project 4 - Final Project by Alexy Kotliar - May 24, 2020
 
-The requirements  : 
-menu : 
-when visiting the web site even if the client is not logged in he will be able to view the menu, and the menu is generated from the database so if the owner will make a change or add/remove an item it will be reflected in the menu.
-Adding items 
-from the admin panel, you can add items to the "MenuItem" table with the price of the item, category, and a large price if available for that item. from the same table, he can update an existing item or delete it.
-Registration, Login, Logout 
-using DJANGO's authentication a client can register login and logout from the website. after the registration, the client will receive an email with his user name and password. after the client is logged in he will be able to see the full Main menu with the shopping cart and order history.
-Shopping Cart
-after the client adds an item to the shopping cart I'm using BOOTSRAP's badge to show the number of items in the shopping cart. ones the client clicks on the shopping cart he can see the items with the toppings he as selected and the full price of all the items. the shopping cart is pulling the information from local storage so even if the client logs out or closes the website when he returns to the site he still will have all the items there.
-Placing an order 
-In the shopping cart, the client can see the option to confirm the order, ones the order is confirmed the shopping cart deletes all the items and deletes the items from local storage as well and the badge on the cart goes to 0. ones an order is placed the client will receive a conformation email with the order details.
-Viewing Orders 
-In the main menu after the client log-in, he will have the options to view all his orders, including the ID or the order, items, toppings, and status of the order. this will be a list of all the confirmed orders.
-Personal touch 
-As a personal touch, I did all the menus of the page to be popup forms and after registering on the website you will receive an email Thanking the client for registering and the information about the account with user name and password as well as after completing a new order the client will get an email with the details of the order.
+the goal :
+build a fitness tracker application for people who like to run and want to see the history and improvement and performers, and who like to compete with there friends 
 
-Models : 
-users - I'm using DJANGO authentication system 
-menuItems - a table with the items name price and category
-Orders - contain the order id, user and manyTomany of orderItems
-OrderItems - the items with the options that the client selected
-Toppings - a list of all available toppings 
+The technologies  : 
+the application was built with CSS Grid system and bootstrap for mobile responsiveness, GeoLocation for location, and google maps API for map representation, Python for backend programming with Django framework, javascript, HTML, CSS on the front end and Chart.js for the charts.
+because this application was using GEOlocations I uploaded this application to amazon server EC2 instance with domain : 
+https://alexkotliar.com
+as all browser applications that use GeoLocation have to be with SSL certificate, and I'm using free "let's encrypt " certificate 
 
+log-in/ register :
+using Django authentication and Javascript all the fields in the login/register options are check with JavaScript to see if the content is valid before there is an option to submit the form and log-in or register using Django build-in authentication.
+
+The Dashboard : 
+in the dashboard the user has 3 options : 
+	*dashboard
+	*new Run
+	*friends
+
+*dashboard - the user can see a chart with a history of his run's, by default the chart is set by distance X axle is ordered date and the Y is the distance, on the top of the chart there is an option to select the chart by average speed when this option is selected another filter will appear with a selection of distance 
+
+*new Run - selecting this option will get a menu where the user can select the distance he wants to run and start and stop buttons. 
+clicking the start button will start a timer (javascript interval) and will call get geolocation, every point from there is saved in a list and a function calculates the price is returning the distance between the last point and a current one and adding this to a global variable distance until the user reaching the selected distance after the goal is reached 2 AJAX request are made 2 to save the run and another to save the locations.
+this section is made for mobile phones as I'm using accurate location option from geoLocation to get GPS coordinates and not cell tower or IP
+
+
+*friends - in this section the user can see all his friend requests he sent or was sent to him and a Form to send a new friend request.
+the form is checked with python to make sure there is a user with this email and there was no other request between these users.
+after the user is sending a friend request, his friend receives an email with 2 links to accept or decline the friend request, I'm using the friend request-id in the /accept or /decline URL to execute the request.
+after the friend request was sent the user has the option to accept in the friend section in the dashboard as well.
+after a friend request is accepted, there will be a link in the friend section to view the friend's statistics.
