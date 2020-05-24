@@ -451,7 +451,7 @@ function showmap(runid){
                script.type= 'text/javascript';
                script.setAttribute('id','mapsscript');
                templocations = JSON.parse(this.response)
-               script.src= 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAiZkAzv78fEialBf2ITaCyRIaH78zKhWU&callback=initMap';
+               script.src= 'https://maps.googleapis.com/maps/api/js?key=This is where you input a GOOGLE API KEY&callback=initMap';
                head.appendChild(script);
                console.log(templocations.locations)
                let x= [];
