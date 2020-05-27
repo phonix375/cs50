@@ -12,21 +12,25 @@ int main(void)
     while (number < 1 || number > 8);
     int i;
     int j;
-    for(i=1;i<= number;i++)
+    for (i = 1; i <= number; i++)
     {
-        for(j=1;j <number-i+1;j++)
+        //printing the number of spaces on the right
+        for (j = 1; j < number - i + 1 ; j++)
         {
             printf(" ");
         }
-        for(j=1;j<=i;j++)
+        //printing the hashes on the left piramid
+        for (j = 1; j <= i ; j++)
         {
             printf("#");
         }
+        //adding the spaceing between the piramids
         printf("  ");
-         for(j=1;j<=i;j++)
+        for (j = 1 ; j <= i ; j++)
         {
             printf("#");
         }
+        //moving to the next row
         printf("\n");
 
 
