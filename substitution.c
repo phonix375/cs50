@@ -43,8 +43,9 @@ int main(int argc, char *argv[])
         }
     }
     printf("ciphertext: ");
-    for(int j = 0; j < strlen(plantext)-1; j++)
+    for(int j = 0; j < strlen(plantext); j++)
     {
         printf("%c",ciphertext[j]);
     }
+    printf("\n");
 }
