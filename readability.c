@@ -8,11 +8,11 @@ int main(void)
     int len = strlen(text);
     int wordCounter = 0;
     int latterCounter =0;
-    int sentenceCounter =1;
+    int sentenceCounter =0;
     int i;
     if(len >= 0)
     {
-            for (i= 0; i<len-1;i++ )
+            for (i= 0; i<=len-1;i++ )
         {
             if(text[i]==' ')
             {
@@ -51,5 +51,4 @@ int main(void)
     {
         printf("Grade %i\n", Grade);
     }
-    printf("number of cheracters %i ,number of words %i , number of sentences %i",latterCounter,wordCounter,sentenceCounter);
 }
