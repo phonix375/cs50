@@ -28,7 +28,15 @@ int main(int argc, char *argv[])
         {
             if(islower(plantext[i]))
             {
-                ciphertext[i] = argv[1][(int)plantext[i] - 97];
+                if(islower(argv[1][(int)plantext[i] - 97]))
+                {
+                    ciphertext[i] = argv[1][(int)plantext[i] - 97];
+                }
+                else
+                {
+                    ciphertext[i] = (char)((int)argv[1][(int)plantext[i] - 97]+32);
+                }
+
                 //convert to lower
             }
             else if(isupper(plantext[i]))
