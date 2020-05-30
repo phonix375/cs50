@@ -28,7 +28,14 @@ int main(void)
             }
             if (  text[i] == '.' || text[i] == '!' || text[i] == '?')
             {
-                sentenceCounter ++;
+                if (  text[i-1] != '.' || text[i-1] != '!' || text[i-1] != '?')
+                {
+
+                }
+                else
+                {
+                    sentenceCounter ++;
+                }
             }
 
         }
@@ -51,5 +58,5 @@ int main(void)
     {
         printf("Grade %i\n", Grade);
     }
-
+   // printf("number of cheracters %i ,number of words %i , number of sentences %i",latterCounter,wordCounter,sentenceCounter);
 }
