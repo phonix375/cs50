@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
                 }
                 else
                 {
-                    ciphertext[i] = (char)((int)argv[1][(int)plantext[i]-65] + 32);
+                    ciphertext[i] = (char)((int)argv[1][(int)plantext[i]-65])-32;
                 }
 
 
@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
                 }
                 else
                 {
-                    ciphertext[i] = argv[1][(int)plantext[i]-65];
+                    ciphertext[i] = (char)((int)argv[1][(int)plantext[i]-97]);
                 }
 
 
