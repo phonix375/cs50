@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
     }
 
 
+
     plantext = get_string("plaintext: ");
     char ciphertext[(int)strlen(plantext)];
 
