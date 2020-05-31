@@ -65,9 +65,10 @@ int main(int argc, char *argv[])
 
 
     }
-    printf("ahhahzahazhahahahahahaha\n");
+    printf("ciphertext: \n");
     for(int j = 0; j < strlen(plantext);j++)
     {
         printf("%c",ciphertext[j]);
     }
+    printf("\n");
 }
