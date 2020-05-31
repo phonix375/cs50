@@ -22,38 +22,52 @@ int main(int argc, char *argv[])
     plantext = get_string("plaintext: ");
     char ciphertext[(int)strlen(plantext)];
 
-    for (int i=0;i < keylen; i++)
+    for (int i=0;i < strlen(plantext); i++)
     {
-        if (isalpha(plantext[i]))
+        if(isalpha(plantext[i]))
         {
-            if(islower(plantext[i]))
+            //check if upper case
+            if((int)plantext[i] >=  65 && (int)plantext[i] <= 90)
             {
-                if(islower(argv[1][(int)plantext[i] - 97]))
+                printf("i need apper %c ",argv[1][(int)plantext[i]-65]);
+                if(isupper(argv[1][(int)plantext[i]-65]))
                 {
-                    ciphertext[i] = argv[1][(int)plantext[i] - 97];
+                   ciphertext[i] = argv[1][(int)plantext[i]-65];
                 }
                 else
                 {
-                    ciphertext[i] = (char)((int)argv[1][(int)plantext[i] - 97]+32);
+                    ciphertext[i] = (char)((int)argv[1][(int)plantext[i]-65] + 32);
                 }
 
-                //convert to lower
+
             }
-            else if(isupper(plantext[i]))
-            {
-                ciphertext[i] = argv[1][(int)plantext[i] - 65];
-                //convert to upper
-            }
+            //if plan text lower case
             else
             {
-                 ciphertext[i] = argv[1][i];
+                printf("i need lower %c ",argv[1][(int)plantext[i]-97]);
+                if(isupper(argv[1][(int)plantext[i]-97]))
+                {
+                   ciphertext[i] = (char)((int)argv[1][(int)plantext[i]-97] + 32);
+                }
+                else
+                {
+                    ciphertext[i] = argv[1][(int)plantext[i]-65];
+                }
+
+
             }
+
         }
+        else
+        {
+            ciphertext[i] = plantext[i];
+        }
+
+
     }
-    printf("ciphertext: ");
-    for(int j = 0; j < strlen(plantext); j++)
+    printf("ahhahzahazhahahahahahaha\n");
+    for(int j = 0; j < strlen(plantext);j++)
     {
         printf("%c",ciphertext[j]);
     }
-    printf("\n");
 }
