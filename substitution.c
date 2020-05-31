@@ -5,7 +5,7 @@
 
 int main(int argc, char *argv[])
 {
-     string plantext;
+    string plantext;
     if(argc < 2)
     {
         printf("Usage: ./substitution key\n");
@@ -17,6 +17,29 @@ int main(int argc, char *argv[])
         printf("Usage: ./substitution key\n");
         return 1;
     }
+    for (int x = 0;x < keylen; x ++ )
+    {
+        if(! (isalpha(argv[1][x]) ))
+        {
+            printf("your key needs to contain just letters\n");
+            return 1;
+        }
+    }
+    for (int y = 0; y < keylen ; y ++)
+    {
+        for (int z = 0; z < keylen; z++)
+        {
+            if(!( y==z ))
+            {
+               if(argv[1][y] ==  argv[1][z])
+               {
+                   printf("all carecters maust be unik in the key\n");
+                   return 1;
+               }
+            }
+        }
+    }
+
 
 
 
