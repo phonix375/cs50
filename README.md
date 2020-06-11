@@ -30,3 +30,6 @@ the form is checked with python to make sure there is a user with this email and
 after the user is sending a friend request, his friend receives an email with 2 links to accept or decline the friend request, I'm using the friend request-id in the /accept or /decline URL to execute the request.
 after the friend request was sent the user has the option to accept in the friend section in the dashboard as well.
 after a friend request is accepted, there will be a link in the friend section to view the friend's statistics.
+
+
+thank you
