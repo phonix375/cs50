@@ -274,3 +274,7 @@ def changeStatusFriend(request):
             foo.save()
 
     return HttpResponseRedirect("dashbord")
+
+
+
+#this is a final project by alexy kotliar 
