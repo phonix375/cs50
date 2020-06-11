@@ -1,0 +1,71 @@
+{% extends "run/base.html" %}
+{% load static %}
+{% block java%}
+<script src="{% static 'run/login.js' %}"></script> 
+{% endblock %}
+{% block body %}
+
+          {% if message %}
+          {% endif %}
+</div>
+{% if error == 'wrong' %}
+<div class="alert alert-danger" role="alert">
+     User name or password is incorrect
+   </div>
+{% endif %}
+<div id="grid3">
+     <div id="login"></div>
+     <div id="loginText">dont have an account yet ? <br><button id="register">register</button></div>
+     <div id="loginForm">
+               <form action="{% url 'logincheck'%}" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                         <label for="exampleFormControlInput1">User name</label>
+                         <input type="text" name="username" class="form-control loginFild" id="username" required>
+                    </div>
+                    <div class="form-group">
+                         <label for="exampleFormControlInput1">Password</label>
+                         <input type="password" name="password" class="form-control loginFild" id="password" required>
+                    </div>
+                    <div class="form-group">
+                         <label for="exampleFormControlInput1">Login</label>
+                         <input type="submit" class="form-control" id="submit_login" disabled>
+                    </div>
+               </form>
+
+
+     </div>
+     <div id="registerText">Alrady have an account? ? <br><button id="loginbtn">login</button></div>
+     <div id="registerForm">
+          <div>
+          <form action="{% url 'register'%}" method="post">
+               {% csrf_token %}
+               <div class="form-group">
+                    <label for="exampleFormControlInput1">First Nmae</label>
+                    <input type="text" class="form-control registeration" id="first_name" name="first_name" required>
+               </div>
+               <div class="form-group">
+                    <label for="exampleFormControlInput1">Last Name</label>
+                    <input type="text" class="form-control registeration" id="last_name" name="last_name" required>
+               </div>
+               <div class="form-group">
+                    <label for="exampleFormControlInput1">User name </label>
+                    <input type="text" class="form-control registeration" id="user_name" name="user_name" required>
+               </div>
+               <div class="form-group">
+                    <label for="exampleFormControlInput1">Email </label>
+                    <input type="text" class="form-control registeration" id="email" name="email" required>
+               </div>
+               <div class="form-group">
+                    <label for="exampleFormControlInput1">Select Password </label>
+                    <input type="password" class="form-control registeration" id="password_register" name="password" required>
+               </div>
+               <input type="submit" class="form-control" id="submit_register" disabled>
+
+          </form>
+     </div>
+
+
+     </div>
+</div>
+{% endblock %}

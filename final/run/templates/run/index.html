@@ -1,0 +1,50 @@
+{% extends "run/base.html" %}
+{% load static %}
+
+{% block body %}
+
+<div id="heroImage" style="background-image: url({% static 'run/hero4.jpg' %})">
+
+     <div class="hero-text font_5">
+          <h1 font>Running app</h1>
+          <p>Inspiring you to improve every day </p>
+     </div>
+</div>
+<div class="gap1"></div>
+</div>
+<div class="grid2">
+     <div id="herosmall" style="background-image: url({% static 'run/herosmall.jpg' %})">
+     </div>
+     <div id="About"><a name="about"></a>
+    <h1>CS50W Final Project</h1><br>
+     <p>And this is my final project at CS50W Python and JavaScript.<br>
+          In this project I'm using most of the technologies I learn in CS50 among them:<br>
+          Python, JavaScript, CSS, HTML, API, AJAX, and much more.
+          I hope you will enjoy it =)
+     </p>
+</div>
+<div id="gap2">
+</div>
+<div id="heroSmall2" style="background-image: url({% static 'run/herosmall21.jpg' %})">
+</div>
+<div id="about2">
+     <h1>About</h1><br>
+     <p>
+          This is a running app, here you can log in, track your running progress, and see the progress of your friends.<br>
+          this app is using geolocation to determine your location  
+     </p>
+</div>
+<div id="gap3"></div>
+
+<div id="contact">
+     <a name="contact"></a> 
+     <h1>Get in touch</h1>
+     <p>Send me an email at kotliar.alex@gmail.com</p>
+</div>
+<div id="contactForm">
+all rights resorved Alexy Kotliar 2020
+</div>
+</div>
+     </div>
+
+{% endblock %}
