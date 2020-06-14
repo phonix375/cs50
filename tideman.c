@@ -228,22 +228,22 @@ void lock_pairs(void)
     int true_count = 0;
     for(int i= 0; i < pair_count; i++)
     {
+        true_count = 0;
         locked[pairs[i].winner][pairs[i].loser] = true;
-        for(int x = 0; x < pair_count; x++)
+        for(int x = 0; x < pair_count; x++ )
         {
-            int y = 0;
-            for(y= 0; y< pair_count ; y ++ )
+            for(int y =0;y<pair_count;y++)
             {
-                if(locked[x][y] == 1)
+                if(locked[y][x] == 1)
                 {
-                  true_count ++;
+                  true_count++;
                   y=pair_count;
                 }
             }
         }
         if(true_count == pair_count)
         {
-            locked[1][2] = false;
+            locked[pairs[pair_count-1].winner][pairs[pair_count-1].loser]= false;
         }
     }
     for(int i = 0; i < pair_count; i++)
