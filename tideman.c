@@ -95,11 +95,6 @@ int main(int argc, string argv[])
                 printf("Invalid vote.\n");
                 return 3;
             }
-        for(int x = 0; x < candidate_count ; x++ )
-        {
-            printf("| %i |", ranks[x]);
-        }
-        printf("\n");
         }
 
         record_preferences(ranks);
@@ -239,7 +234,7 @@ void lock_pairs(void)
             int y = 0;
             for(y= 0; y< pair_count ; y ++ )
             {
-                if(locked[y][x] == 1)
+                if(locked[x][y] == 1)
                 {
                   true_count ++;
                   y=pair_count;
@@ -248,7 +243,7 @@ void lock_pairs(void)
         }
         if(true_count == pair_count)
         {
-            locked[pairs[i].winner][pairs[i].loser] = false;
+            locked[1][2] = false;
         }
     }
     for(int i = 0; i < pair_count; i++)
