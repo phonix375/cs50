@@ -234,7 +234,7 @@ void lock_pairs(void)
         {
             for(int y =0;y<pair_count;y++)
             {
-                if(locked[y][x] == 1)
+                if(locked[x][y] == 1)
                 {
                   true_count++;
                   y=pair_count;
