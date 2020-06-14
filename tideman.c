@@ -105,30 +105,30 @@ int main(int argc, string argv[])
     {
         for(int j = 0 ; j < candidate_count;j++)
         {
-            printf("| %i |",preferences[i][j]);
+            //printf("| %i |",preferences[i][j]);
         }
-       printf("\n");
+       //printf("\n");
     }
 
     add_pairs();
     for(int i = 0; i<pair_count;i++)
     {
-       printf("prir %i winner %i loser %i\n", i,pairs[i].winner,pairs[i].loser );
+       //printf("prir %i winner %i loser %i\n", i,pairs[i].winner,pairs[i].loser );
     }
      for(int i = 0; i< pair_count; i++)
     {
-        printf("pair %i diffrense %i  between %i - %i\n| ", i,preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner], pairs[i].winner,pairs[i].loser );
+        //printf("pair %i diffrense %i  between %i - %i\n| ", i,preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner], pairs[i].winner,pairs[i].loser );
     }
     sort_pairs();
-    printf("-----------------------------after sort-------------------\n");
+    //printf("-----------------------------after sort-------------------\n");
     for(int i = 0; i< pair_count; i++)
     {
-        printf("pair %i diffrense %i  between %i - %i\n| ", i,preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner], pairs[i].winner,pairs[i].loser );
+        //printf("pair %i diffrense %i  between %i - %i\n| ", i,preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner], pairs[i].winner,pairs[i].loser );
     }
-    printf("\n");
+    //printf("\n");
         for(int i = 0; i<pair_count;i++)
     {
-        printf("prir %i winner %i loser %i\n", i,pairs[i].winner,pairs[i].loser );
+        //printf("prir %i winner %i loser %i\n", i,pairs[i].winner,pairs[i].loser );
     }
     lock_pairs();
     print_winner();
@@ -250,9 +250,9 @@ void lock_pairs(void)
     {
         for(int j=0;j<pair_count;j++)
         {
-            printf("| %i |",locked[i][j]);
+            //printf("| %i |",locked[i][j]);
         }
-        printf("\n");
+        //printf("\n");
     }
     return;
 }
