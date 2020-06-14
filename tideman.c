@@ -120,11 +120,15 @@ int main(int argc, string argv[])
     {
        printf("prir %i winner %i loser %i\n", i,pairs[i].winner,pairs[i].loser );
     }
+     for(int i = 0; i< pair_count; i++)
+    {
+        printf("pair %i diffrense %i  between %i - %i\n| ", i,preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner], pairs[i].winner,pairs[i].loser );
+    }
     sort_pairs();
     printf("-----------------------------after sort-------------------\n");
     for(int i = 0; i< pair_count; i++)
     {
-        printf("pair %i diffrense %i  between %i - %i| ", i, preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner],pairs[i].winner,pairs[i].loser );
+        printf("pair %i diffrense %i  between %i - %i\n| ", i,preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner], pairs[i].winner,pairs[i].loser );
     }
     printf("\n");
         for(int i = 0; i<pair_count;i++)
@@ -193,31 +197,35 @@ void add_pairs(void)
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
-    int max_index = 0;
-    int temp_winner = 0;
-    int temp_loser = 0;
-    for (int i = 0; i < pair_count; i++)
+    int max_index=0;
+    pair temp;
+    for (int i=0; i< pair_count; i++)
     {
-        for(int j = i+1; j < pair_count; j++)
+        max_index = i;
+        for(int j = i+1 ; j < pair_count;j++)
         {
-            if((preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner]) < (preferences[pairs[j].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[j].winner]))
+
+            if (preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner]  < preferences[pairs[j].winner][pairs[j].loser] - preferences[pairs[j].loser][pairs[j].winner])
             {
                 max_index = j;
             }
         }
-        if(i != max_index)
+        if(max_index != i)
         {
-            temp_winner = pairs[i].winner;
-            temp_loser = pairs[i].loser;
+            //temp = list[i];
+            temp.winner = pairs[i].winner;
+            temp.loser = pairs[i].loser;
+            //list[i] = list[max_index];
             pairs[i].winner = pairs[max_index].winner;
             pairs[i].loser = pairs[max_index].loser;
-            pairs[max_index].winner = temp_winner;
-            pairs[max_index].loser = temp_loser;
+            //list[max_index] = temp;
+            pairs[max_index].winner = temp.winner;
+            pairs[max_index].loser = temp.loser;
         }
     }
+
     return;
 }
-
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
