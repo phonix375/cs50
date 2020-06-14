@@ -230,9 +230,34 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
 
+    int true_count = 0;
     for(int i= 0; i < pair_count; i++)
     {
         locked[pairs[i].winner][pairs[i].loser] = true;
+        for(int x = 0; x < pair_count; x++)
+        {
+            int y = 0;
+            for(y= 0; y< pair_count ; y ++ )
+            {
+                if(locked[y][x] == 1)
+                {
+                  true_count ++;
+                  y=pair_count;
+                }
+            }
+        }
+        if(true_count == pair_count)
+        {
+            locked[pairs[i].winner][pairs[i].loser] = false;
+        }
+    }
+    for(int i = 0; i < pair_count; i++)
+    {
+        for(int j=0;j<pair_count;j++)
+        {
+            printf("| %i |",locked[i][j]);
+        }
+        printf("\n");
     }
     return;
 }
