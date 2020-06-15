@@ -124,9 +124,9 @@ int main(int argc, string argv[])
     //printf("-----------------------------after sort-------------------\n");
     for(int i = 0; i< pair_count; i++)
     {
-        //printf("pair %i diffrense %i  between %i - %i\n| ", i,preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner], pairs[i].winner,pairs[i].loser );
+        printf("pair %i diffrense %i  between %i - %i\n| ", i,preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner], pairs[i].winner,pairs[i].loser );
     }
-    //printf("\n");
+    printf("\n");
         for(int i = 0; i<pair_count;i++)
     {
         //printf("prir %i winner %i loser %i\n", i,pairs[i].winner,pairs[i].loser );
@@ -232,14 +232,16 @@ bool node_check(int index,bool visited[] )
     visited[index] = true;
     for(int i = 0; i<candidate_count; i++)
     {
-        if (locked[index][i] == true)
+        if (locked[index][i])
         {
-            if(node_check(i, visited)== true)
+            if(node_check(i, visited))
             {
+                printf("going to return true\n");
                 return true;
             }
         }
     }
+    printf("going to retun false\n");
     return false;
 }
 
