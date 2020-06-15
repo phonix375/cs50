@@ -33,6 +33,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+bool check_cycale(int index);
 
 int main(int argc, string argv[])
 {
@@ -221,37 +222,58 @@ void sort_pairs(void)
 
     return;
 }
-// Lock pairs into the candidate graph in order, without creating cycles
-void lock_pairs(void)
-{
 
-    int true_count = 0;
-    for(int i= 0; i < pair_count; i++)
+bool node_check(int index,bool visited[] )
+{
+    if(visited[index])
     {
-        true_count = 0;
-        locked[pairs[i].winner][pairs[i].loser] = true;
+        return true;
     }
-    for(int x = 0; x < pair_count; x++)
+    visited[index] = true;
+    for(int i = 0; i<candidate_count; i++)
     {
-        for(int y = 0 ; y < pair_count;y++)
+        if (locked[index][i] == true)
         {
-            if(locked[x][y])
+            if(node_check(i, visited)== true)
             {
-                true_count ++;
+                return true;
             }
         }
     }
-    if(true_count == pair_count)
+    return false;
+}
+
+
+// Lock pairs into the candidate graph in order, without creating cycles
+bool check_cycale(int index)
+{
+    bool visited[candidate_count];
+    for (int i = 0; i < candidate_count; i ++)
     {
-        locked[pairs[pair_count -1].winner][pairs[pair_count-1].loser] = false;
+        visited[i] = false;
+        return node_check(index , visited);
     }
+    return false;
+}
+void lock_pairs(void)
+{
+
+    for(int i= 0; i < pair_count; i++)
+    {
+        locked[pairs[i].winner][pairs[i].loser] = true;
+        if(check_cycale(i))
+        {
+           locked[pairs[i].winner][pairs[i].loser] = false;
+        }
+    }
+
     for(int i = 0; i < pair_count; i++)
     {
         for(int j=0;j<pair_count;j++)
         {
-            //printf("| %i |",locked[i][j]);
+            printf("| %i |",locked[i][j]);
         }
-        //printf("\n");
+        printf("\n");
     }
     return;
 }
