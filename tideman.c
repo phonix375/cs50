@@ -227,6 +227,7 @@ bool node_check(int index,bool visited[] )
 {
     if(visited[index])
     {
+        printf("going to return true\n");
         return true;
     }
     visited[index] = true;
@@ -253,9 +254,10 @@ bool check_cycale(int index)
     for (int i = 0; i < candidate_count; i ++)
     {
         visited[i] = false;
-        return node_check(index , visited);
+
     }
-    return false;
+    return node_check(index , visited);
+
 }
 void lock_pairs(void)
 {
@@ -263,9 +265,10 @@ void lock_pairs(void)
     for(int i= 0; i < pair_count; i++)
     {
         locked[pairs[i].winner][pairs[i].loser] = true;
+        printf("sending to the function %i \n", i);
         if(check_cycale(i))
         {
-            //printf("return a cycle after check:%i - %i ",pairs[i].winner,pairs[i].loser);
+            printf("return a cycle after check:%i - %i ",pairs[i].winner,pairs[i].loser);
            locked[pairs[i].winner][pairs[i].loser] = false;
         }
     }
@@ -274,7 +277,7 @@ void lock_pairs(void)
     {
         for(int j=0;j<pair_count;j++)
         {
-            //printf("| %i |",locked[i][j]);
+            printf("| %i |",locked[i][j]);
         }
         printf("\n");
     }
