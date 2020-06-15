@@ -124,9 +124,9 @@ int main(int argc, string argv[])
     //printf("-----------------------------after sort-------------------\n");
     for(int i = 0; i< pair_count; i++)
     {
-        printf("pair %i diffrense %i  between %i - %i\n| ", i,preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner], pairs[i].winner,pairs[i].loser );
+        //printf("pair %i diffrense %i  between %i - %i\n| ", i,preferences[pairs[i].winner][pairs[i].loser] - preferences[pairs[i].loser][pairs[i].winner], pairs[i].winner,pairs[i].loser );
     }
-    printf("\n");
+    //printf("\n");
         for(int i = 0; i<pair_count;i++)
     {
         //printf("prir %i winner %i loser %i\n", i,pairs[i].winner,pairs[i].loser );
@@ -227,7 +227,7 @@ bool node_check(int index,bool visited[] )
 {
     if(visited[index])
     {
-        printf("going to return true\n");
+        //printf("going to return true\n");
         return true;
     }
     visited[index] = true;
@@ -237,12 +237,12 @@ bool node_check(int index,bool visited[] )
         {
             if(node_check(i, visited))
             {
-                printf("going to return true\n");
+                //printf("going to return true\n");
                 return true;
             }
         }
     }
-    printf("going to retun false\n");
+    //printf("going to retun false\n");
     return false;
 }
 
@@ -265,10 +265,10 @@ void lock_pairs(void)
     for(int i= 0; i < pair_count; i++)
     {
         locked[pairs[i].winner][pairs[i].loser] = true;
-        printf("sending to the function %i \n", i);
+        //printf("sending to the function %i \n", i);
         if(check_cycale(i))
         {
-            printf("return a cycle after check:%i - %i ",pairs[i].winner,pairs[i].loser);
+            //printf("return a cycle after check:%i - %i ",pairs[i].winner,pairs[i].loser);
            locked[pairs[i].winner][pairs[i].loser] = false;
         }
     }
@@ -277,9 +277,9 @@ void lock_pairs(void)
     {
         for(int j=0;j<pair_count;j++)
         {
-            printf("| %i |",locked[i][j]);
+            //printf("| %i |",locked[i][j]);
         }
-        printf("\n");
+        //printf("\n");
     }
     return;
 }
