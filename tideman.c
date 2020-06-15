@@ -300,7 +300,7 @@ void print_winner(void)
         }
         if(true_count == 0 )
         {
-            printf("%s \n",candidates[i]);
+            printf("%s\n",candidates[i]);
         }
     }
     return;
