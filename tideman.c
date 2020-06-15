@@ -265,6 +265,7 @@ void lock_pairs(void)
         locked[pairs[i].winner][pairs[i].loser] = true;
         if(check_cycale(i))
         {
+            //printf("return a cycle after check:%i - %i ",pairs[i].winner,pairs[i].loser);
            locked[pairs[i].winner][pairs[i].loser] = false;
         }
     }
@@ -273,7 +274,7 @@ void lock_pairs(void)
     {
         for(int j=0;j<pair_count;j++)
         {
-            printf("| %i |",locked[i][j]);
+            //printf("| %i |",locked[i][j]);
         }
         printf("\n");
     }
