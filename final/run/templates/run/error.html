@@ -1,9 +1,0 @@
-{% extends "run/base.html" %}
-{% load static %}
-
-{% block body %}
-{% if error == 'not_authorized' %}
-<div class="alert alert-danger" role="alert">
-     User name or password is incorrect
-   </div>
-{% endif %}
