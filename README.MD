@@ -34,3 +34,7 @@ and the user will see the option to accept or reject the invitation as well as a
 
 Technologies from the course I used : 
 HTML, JavaScript, Python, Django + Templates , CSS, SQLite
+
+
+ project satisfies the distinctiveness and complexity requirements because I’m using GEO location and for that I needed to understand how to run my Django project on a virtual privet server install Linux and use apache to run the Django project, and utilized google maps API to display the map and use JavaScript charts to display a chart with the information about previous runs and the option to accept friend request in the email message 
+
