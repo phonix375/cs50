@@ -56,7 +56,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for(int j=0;j < width ;j++)
         {
-            printf("%i,%i,%i",image[i][j].rgbtRed,image[i][j].rgbtGreen,image[i][j].rgbtBlue);
+            //printf("%i,%i,%i",image[i][j].rgbtRed,image[i][j].rgbtGreen,image[i][j].rgbtBlue);
             for(int k= i-1; k < i+1; k++ )
             {
                 for(int m = j-1; m < j+1; m++)
