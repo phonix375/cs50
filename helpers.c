@@ -47,7 +47,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE image_blure[height][width];
-    int count = 0;
+    float count = 0;
     int red = 0;
     int green =0 ;
     int blue = 0;
@@ -76,9 +76,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            image_blure[i][j].rgbtRed = red / count;
-            image_blure[i][j].rgbtGreen = green / count;
-            image_blure[i][j].rgbtBlue = blue / count;
+            image_blure[i][j].rgbtRed = round(red / count);
+            image_blure[i][j].rgbtGreen = round(green / count);
+            image_blure[i][j].rgbtBlue = round(blue / count);
             count = 0;
             red= 0 ;
             green = 0;
