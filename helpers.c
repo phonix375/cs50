@@ -100,5 +100,83 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    RGBTRIPLE image_edge[height][width];
+
+    for(int i = 0; i < height; i++)
+    {
+        for(int j=0;j < width ;j++)
+        {
+           image_edge[i][j] = image[i][j];
+        }
+    }
+
+  for(int i = 0; i < height; i++)
+    {
+        for(int j=0;j < width ;j++)
+        {
+            float gx_r = 0.0;
+            float gx_g = 0.0;
+            float gx_b = 0.0;
+
+            float gy_r = 0.0;
+            float gy_g = 0.0;
+            float gy_b = 0.0;
+            int GX[9] = {-1,0,1,-2,0,2,-1,0,1};
+            int GY[9] = {-1,-2,-1,0,0,0,1,2,1};
+            float temp = 0.0;
+
+
+            int count = 0;
+            for(int k= i-1; k <= i+1; k++ )
+            {
+
+
+                for(int m = j-1; m <= j+1; m++)
+                {
+
+                    if(k >= 0 && m >= 0 && k < height && m < width )
+                    {
+                      gx_r +=  GX[count] * image_edge[k][j].rgbtRed;
+                      gx_g +=  GX[count] * image_edge[k][j].rgbtGreen;
+                      gx_b +=  GX[count] * image_edge[k][j].rgbtBlue;
+
+                      gy_r += GY[count] * image_edge[k][j].rgbtRed;
+                      gy_g += GY[count] * image_edge[k][j].rgbtGreen;
+                      gy_b += GY[count] * image_edge[k][j].rgbtBlue;
+                    }
+                    count++;
+                }
+            }
+            temp = round(sqrt((gx_r * gx_r) +  (gy_r * gy_r)));
+            if(sqrt((gx_r * gx_r) +  (gy_r * gy_r)) > 255)
+            {
+               image[i][j].rgbtRed = 255;
+            }
+            else
+            {
+                image[i][j].rgbtRed = round(sqrt((gx_r * gx_r +  gy_r * gy_r)));
+            }
+            temp = round(sqrt(gx_g * gx_g + gy_g * gy_g ));
+            if(round(sqrt(gx_g * gx_g + gy_g * gy_g) > 255))
+            {
+                image[i][j].rgbtGreen = 255;
+            }
+            else
+            {
+                image[i][j].rgbtGreen = round(sqrt(gx_g * gx_g + gy_g * gy_g ));
+            }
+            temp = round(sqrt(gx_b * gx_b +  (gy_b * gy_b))) ;
+            if(round(sqrt((gx_b * gx_b) +  (gy_b * gy_b))) > 255)
+            {
+               image[i][j].rgbtBlue = 255;
+            }
+            else
+            {
+                image[i][j].rgbtBlue = round(sqrt((gx_b * gx_b) +  (gy_b * gy_b)));
+            }
+        }
+    }
+
+
     return;
 }
