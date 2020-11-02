@@ -136,13 +136,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
                     if(k >= 0 && m >= 0 && k < height && m < width )
                     {
-                      gx_r +=  GX[count] * image_edge[k][j].rgbtRed;
-                      gx_g +=  GX[count] * image_edge[k][j].rgbtGreen;
-                      gx_b +=  GX[count] * image_edge[k][j].rgbtBlue;
+                      gx_r +=  GX[count] * image_edge[k][m].rgbtRed;
+                      gx_g +=  GX[count] * image_edge[k][m].rgbtGreen;
+                      gx_b +=  GX[count] * image_edge[k][m].rgbtBlue;
 
-                      gy_r += GY[count] * image_edge[k][j].rgbtRed;
-                      gy_g += GY[count] * image_edge[k][j].rgbtGreen;
-                      gy_b += GY[count] * image_edge[k][j].rgbtBlue;
+                      gy_r += GY[count] * image_edge[k][m].rgbtRed;
+                      gy_g += GY[count] * image_edge[k][m].rgbtGreen;
+                      gy_b += GY[count] * image_edge[k][m].rgbtBlue;
                     }
                     count++;
                 }
