@@ -5,10 +5,10 @@
 int main(int argc, char *argv[])
 {
     if (argc != 2)
-        {
-            printf("please provide only one argument\n");
-            return 1;
-        }
+    {
+        printf("please provide only one argument\n");
+        return 1;
+    }
 
     FILE *file = fopen(argv[1], "r");
     int ImageNumber = 0;
@@ -16,13 +16,13 @@ int main(int argc, char *argv[])
     FILE *outputFile = NULL;
     int found_image = 0;
 
-    while (fread(&buffer, sizeof(char), 512, file))
+    while (fread(&buffer, sizeof(char), 512, file))  // going over the file
     {
 
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0) // chacking the first 4 bites
         {
             printf("%x %x %x\n", buffer[0], buffer[1], buffer[2]);
-            if (found_image == 1)
+            if (found_image == 1) //if image found alrady
             {
                 fclose(outputFile);
             }
