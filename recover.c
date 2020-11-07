@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0)
         {
+            printf("%x %x %x\n", buffer[0], buffer[1], buffer[2]);
             if (found_image == 1)
             {
                 fclose(outputFile);
@@ -36,8 +37,7 @@ int main(int argc, char *argv[])
         }
         if (found_image == 1)//once new JPEGS are found
         {
-            //copy over the blocks from buffer into new file
-            fwrite(&buffer, sizeof(char), 1, outputFile);
+            fwrite(&buffer, 512, 1, outputFile);
         }
     }
 
