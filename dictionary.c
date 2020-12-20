@@ -69,6 +69,7 @@ bool check(const char *word)
 
      }
      //printf("%s", word);
+     free(n);
     return false;
 }
 
