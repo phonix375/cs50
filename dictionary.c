@@ -111,11 +111,12 @@ bool load(const char *dictionary)
     int hashRes = 0;
     //printf("%p\n",(void *) &fp);
     char temp[46];
+    node *n = malloc(sizeof(node));
     while (fscanf(fp,"%s",temp)==1)
     {
          hashRes = hash(temp);
          //printf("%d <--\n", hashRes);
-         node *n = malloc(sizeof(node));
+
          int x = 0;
             strcpy(n->word, temp);
             for(int foo=0;foo<=strlen(temp);foo++)
@@ -132,20 +133,19 @@ bool load(const char *dictionary)
             table[hashRes] = n;
             n->next = NULL;
             word_count ++;
-            free(n);
          }
          else
          {
             n->next = table[hashRes];
             table[hashRes] = n;
             word_count ++;
-            free(n);
          }
 
    }
 
     //printf("\n%s -> %s -> %s\n", table[1]->word, table[1]->next->word, table[1]->next->next->word);
     fclose(fp);
+    free(n);
 
     return 1;
 }
