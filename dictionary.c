@@ -130,6 +130,7 @@ bool load(const char *dictionary)
          if(n == NULL)
          {
             table[hashRes] = n;
+            n->next = NULL;
             word_count ++;
          }
          else
@@ -155,9 +156,26 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    for(int i=27;i>=0;i--)
+    node *cursor = malloc(sizeof(node));
+    node *temp = malloc(sizeof(node));
+    for(int i =26;i >=0; i--)
     {
-      free(table[i]);
+        cursor = table[i];
+        temp = table[i];
+        if (cursor == NULL)
+        {
+          free(cursor);
+        }
+        else
+        {
+            while(temp != NULL)
+            {
+                cursor = cursor->next;
+                free(temp);
+                temp = cursor;
+            }
+        }
+
     }
     return true;
 }
