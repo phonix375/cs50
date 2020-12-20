@@ -132,12 +132,14 @@ bool load(const char *dictionary)
             table[hashRes] = n;
             n->next = NULL;
             word_count ++;
+            free(n);
          }
          else
          {
             n->next = table[hashRes];
             table[hashRes] = n;
             word_count ++;
+            free(n);
          }
 
    }
