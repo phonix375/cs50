@@ -157,28 +157,16 @@ unsigned int size(void)
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    node *cursor = malloc(sizeof(node));
-    node *temp = malloc(sizeof(node));
-    for(int i =26;i >=0; i--)
-    {
-        cursor = table[i];
-        temp = table[i];
-        if (cursor == NULL)
-        {
-          free(cursor);
-        }
-        else
-        {
-            while(temp != NULL)
-            {
-                cursor = cursor->next;
-                free(temp);
-                temp = cursor;
-            }
-        }
+   for(int i=0;i<N;i++) // loop thru all the arrays
+   {
 
-    }
-    free(cursor);
-    free(temp);
+    node *tmp1=table[i];
+    while(tmp1!=NULL)
+        {
+           node *tmp2 = tmp1;
+            tmp1 = tmp1 -> next;
+            free(tmp2);
+        }
+   }
     return true;
 }
