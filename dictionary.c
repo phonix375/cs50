@@ -54,22 +54,23 @@ bool check(const char *word)
             return false;
         }
 
-     node *n = malloc(sizeof(node));
-     n = table[hashRes];
-     while(n != NULL)
+     node *t = malloc(sizeof(node));
+     t = table[hashRes];
+     while(t != NULL)
      {
-        if(strcasecmp(n->word, word) == 0)
+        if(strcasecmp(t->word, word) == 0)
         {
+            free(t);
             return true;
         }
         else
         {
-            n = n->next;
+            t = t->next;
         }
 
      }
      //printf("%s", word);
-     free(n);
+     free(t);
     return false;
 }
 
