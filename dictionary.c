@@ -69,7 +69,6 @@ bool check(const char *word)
 
      }
      //printf("%s", word);
-     free(n);
     return false;
 }
 
@@ -141,7 +140,6 @@ bool load(const char *dictionary)
             word_count ++;
          }
 
-    free(n);
    }
 
     //printf("\n%s -> %s -> %s\n", table[1]->word, table[1]->next->word, table[1]->next->next->word);
