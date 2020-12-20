@@ -69,6 +69,7 @@ bool check(const char *word)
 
      }
      //printf("%s", word);
+     free(n);
     return false;
 }
 
@@ -139,6 +140,7 @@ bool load(const char *dictionary)
             table[hashRes] = n;
             word_count ++;
          }
+         free(n);
 
    }
 
@@ -177,5 +179,7 @@ bool unload(void)
         }
 
     }
+    free(cursor);
+    free(temp);
     return true;
 }
