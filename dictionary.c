@@ -60,7 +60,6 @@ bool check(const char *word)
      {
         if(strcasecmp(n->word, word) == 0)
         {
-            free(n);
             return true;
         }
         else
