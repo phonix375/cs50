@@ -47,7 +47,6 @@ node *table[N];
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    int found = 0;
     int hashRes = 0;
     hashRes = hash(word);
     if (table[hashRes] == NULL)
@@ -61,8 +60,6 @@ bool check(const char *word)
      {
         if(strcasecmp(t->word, word) == 0)
         {
-            t = NULL;
-            free(t);
             return true;
         }
         else
@@ -72,7 +69,6 @@ bool check(const char *word)
 
      }
      //printf("%s", word);
-     free(t);
     return false;
 }
 
