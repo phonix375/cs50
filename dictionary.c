@@ -142,7 +142,7 @@ bool load(const char *dictionary)
 
    }
 
-    printf("\n%s -> %s -> %s\n", table[1]->word, table[1]->next->word, table[1]->next->next->word);
+    //printf("\n%s -> %s -> %s\n", table[1]->word, table[1]->next->word, table[1]->next->next->word);
     fclose(fp);
     return 1;
 }
