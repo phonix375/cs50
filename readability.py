@@ -10,4 +10,4 @@ if grade < 1 :
 elif grade >= 16:
     print("Grade 16+")
 else:
-    print("Grade" + str(round(grade)))
+    print("Grade " + str(round(grade)))
