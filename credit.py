@@ -26,14 +26,20 @@ if len(number) in [15,16,13]:
         even += int(number[i])
 
     if number[0]+number[1] in ["34","37"]:
-        checkVlid(number)
-        print("AMEX")
+        if checkVlid(number):
+            print("AMEX")
+        else:
+            print("INVALID")
     elif  number[0]+number[1] in [ "51", "52", "53", "54", "55"]:
-        checkVlid(number)
-        print("MASTERCARD")
+        if checkVlid(number):
+            print("MASTERCARD")
+        else:
+            print("INVALID")
     elif number[0] == "4":
-        checkVlid(number)
-        print("VISA")
+        if checkVlid(number):
+            print("VISA")
+        else:
+            print("INVALID")
     else:
         print("INVALID")
 else:
