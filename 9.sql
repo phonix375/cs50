@@ -1,0 +1,1 @@
+SELECT  name FROM (SELECT DISTINCT person_id FROM (SELECT * FROM movies WHERE year = '2004') JOIN stars ON id = stars.movie_id) JOIN people ON person_id = people.id ORDER BY birth;

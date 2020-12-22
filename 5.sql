@@ -1,0 +1,1 @@
+SELECT title, CAST(year AS INT) FROM "movies" WHERE "title" LIKE 'Harry Potter%' ORDER BY 'year';
