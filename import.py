@@ -12,20 +12,8 @@ def main():
         print("please provide a file name to import")
         return 1
     # open the data base to write
-    open(f"students.db", "w").close()
     db = cs50.SQL("sqlite:///students.db")
-    db.execute("""
 
-    CREATE TABLE students (
-	id INTEGER PRIMARY KEY,
-	first TEXT NOT NULL,
-	middle TEXT DEFAULT NULL,
-	last TEXT,
-	house TEXT,
-	birth INTEGER
-);
-
-    """)
     # open the CSV file to load into the databse
     with open(sys.argv[1], "r") as stidents:
         reader = csv.DictReader(stidents)
