@@ -12,7 +12,7 @@ if len(sys.argv) < 2:
 # open the database
 db = cs50.SQL("sqlite:///students.db")
 house = sys.argv[1]
-res = (db.execute(r"SELECT * FROM students WHERE house = '%s' ORDER BY LAST, FIRST" % house))
+res = (db.execute("SELECT * FROM students WHERE house = '%s' ORDER BY LAST, FIRST" % house))
 for i in res:
     if i['middle'] != None:
         print(f"{i['FIRST']} {i['middle']} {i['LAST']}, born {i['birth']}")
