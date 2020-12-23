@@ -15,9 +15,9 @@ house = sys.argv[1]
 res = (db.execute(r"SELECT * FROM students WHERE house = '%s' ORDER BY LAST, FIRST" % house))
 for i in res:
     if i['middle'] != None:
-        print("{} {} {}, born {}".format(i['FIRST'], i['middle'], i['LAST'], i['birth']))
+        print(f"{i['FIRST']} {i['middle']} {i['LAST']}, born {i['birth']}")
     else:
-        print("{} {}, born {}".format(i['FIRST'], i['LAST'], i['birth']))
+        print(f"{i['FIRST']} {i['LAST']}, born {i['birth']}")
 
 
 # run the main function
