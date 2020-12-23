@@ -22,7 +22,7 @@ def main():
 	middle TEXT,
 	last TEXT,
 	house TEXT,
-	birth TEXT
+	birth INTEGER
 );
 
     """)
