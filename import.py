@@ -19,7 +19,7 @@ def main():
     CREATE TABLE students (
 	id INTEGER PRIMARY KEY,
 	first TEXT NOT NULL,
-	middle TEXT,
+	middle TEXT DEFAULT NULL,
 	last TEXT,
 	house TEXT,
 	birth INTEGER
@@ -35,13 +35,17 @@ def main():
     for i in stud:
         if len(i[0].split()) > 2:
             x = i[0].split()[1]
-        else:
-            x = 'null'
-        db.execute("""
+            db.execute("""
             INSERT INTO students
             (first, middle, last, house, birth)
             VALUES(?, ?, ?, ?, ?)""",
                    i[0].split(" ")[0], x, i[0].split()[len(i[0].split())-1], i[1], i[2])
+        else:
+            db.execute("""
+            INSERT INTO students
+            (first, last, house, birth)
+            VALUES(?, ?, ?, ?)""",
+                   i[0].split(" ")[0], i[0].split()[len(i[0].split())-1], i[1], i[2])
 
 
 if __name__ == "__main__":
