@@ -36,7 +36,7 @@ def main():
         if len(i[0].split()) > 2:
             x = i[0].split()[1]
         else:
-            x = ''
+            x = 'None'
         db.execute("""
             INSERT INTO students
             (first, middle, last, house, birth)
