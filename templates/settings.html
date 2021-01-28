@@ -1,0 +1,15 @@
+{% extends "template.html" %}
+{% block title %}this is the home page{% endblock %}
+{% block body %}
+<h1>Upload a new contract header</h1>
+    <form method=post enctype=multipart/form-data action="/upload_header">
+      <input type=file name=file>
+      <input type=submit value=Upload>
+    </form>
+
+    <form>
+        <input type="text" name="name" id="name" />
+        <br /><br />
+        <input type="button" id="upload" value="upload" />
+    </form>
+{% endblock %}
