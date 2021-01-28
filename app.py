@@ -140,8 +140,8 @@ def get_contract():
 def delete_contract():
     print(request.form['id'])
     print(type(request.form['id']))
-    
-    
+
+
     db.session.delete(contract.query.filter_by(id=int(request.form['id'])).first())
     db.session.commit()
     return 'good'
@@ -167,8 +167,8 @@ def generate_link():
     contracts = list(request.form['contracts'].split(','))
     email = request.form['email']
     user = User.query.filter_by(username = session['username']).first()
-    new_link = link(user_id = str(user.id), email=email, contracts_id = str(contracts), link_hash = 'temp')  
-    x = uuid.uuid4() 
+    new_link = link(user_id = str(user.id), email=email, contracts_id = str(contracts), link_hash = 'temp')
+    x = uuid.uuid4()
     new_link.link_hash = x.hex
     db.session.add(new_link)
     db.session.commit()
@@ -200,34 +200,3 @@ def sign(link_info):
 
     return render_template('sign.html', content = list_of_contracts)
 
-
-############################# database use #############################################
-
-
-#>>> from yourapplication import User
-#>>> admin = User(username='admin', email='admin@example.com')
-#>>> db.session.add(admin)
-#>>> db.session.commit()
-
-#>>> db.session.add(admin)
-#>>> db.session.add(guest)
-#>>> db.session.commit()
-
-#User.query.all()
-#User.query.filter_by(username='admin').first()
-
-#user = User.query.get(id)
-#db.session.delete(user)
-#db.session.commit()
-
-############################Useing the password hash##################################
-#from passlib.hash import sha256_crypt
-
-#password = sha256_crypt.hash("password")
-#password2 = sha256_crypt.hash("password")
-
-#print(password)
-#print(password2)
-
-#print(sha256_crypt.verify("password", password))
-######################################################################################

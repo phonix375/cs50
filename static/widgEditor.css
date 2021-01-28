@@ -66,12 +66,12 @@
 	background-image: url(../images/widgeditor_button_html.gif);
 }
 
-.widgButtonImage 
+.widgButtonImage
 {
 	background-image: url(../images/widgeditor_button_image.gif);
 }
 
-.widgButtonItalic 
+.widgButtonItalic
 {
 	background-image: url(../images/widgeditor_button_italic.gif);
 }
@@ -169,9 +169,3 @@
 
 
 
-
-/* EDITOR CONTAINER */
-
-.widgContainer
-{
-}
