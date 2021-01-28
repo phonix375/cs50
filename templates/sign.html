@@ -1,0 +1,24 @@
+{% extends "template.html" %}
+{% block title %}this is the home page{% endblock %}
+{% block body %}
+<div class="accordion" id="accordionExample">
+{%for i in content%}
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne{{i.id}}">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        {{i.title | safe}}
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne{{i.id}}" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        {{i.body | safe}}
+      </div>
+    </div>
+  </div>
+
+{%endfor%}
+
+</div>
+
+this is the signing page<br>
+{% endblock %}
