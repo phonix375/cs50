@@ -1,0 +1,128 @@
+{% extends "template.html" %}
+{% block title %}this is the home page{% endblock %}
+{% block head%}
+<script src="https://cdn.tiny.cloud/1/o7hmfb19twune8ovyxi33ogngjc98w6j4lxnv5fx01eln3zm/tinymce/5/tinymce.min.js"
+  referrerpolicy="origin"></script>
+<script>
+
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename='my_forms.js') }}"></script>
+<script>
+
+</script>
+{% endblock %}
+{% block body %}
+<br>
+<!-- ########################################################  Secundery menu  #################################################### -->
+
+<button type="button" class="btn btn-primary" id="My_Contract">My Contracts</button>
+<button type="button" class="btn btn-primary" id="Add_Contract">Add Contract</button>
+<button type="button" class="btn btn-primary" id="Genarate_Link">Genarate Link</button>
+<br>
+
+<!-- ########################################################  Edit the  contract   #################################################### -->
+
+<div id="edit">
+  <form method="post">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Title of the Contract</label>
+      <input type="text" class="form-control" id="Edit_title" name="title" placeholder="Contract name">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">Edit the Contract</label>
+      <textarea class="form-control" id="mytextarea" name="mytextarea">type here your new contract</textarea>
+    </div>
+  </form>
+  <button type="button" class="btn btn-primary" id="save">add New</button>
+  <button type="button" class="btn btn-primary" id="edit_btn" value="" onclick="edit_existing_contract()">Edit</button>
+</div>
+
+<!-- ########################################################   list of contracts Link   #################################################### -->
+
+<div id="Contracts">
+  List Of My Contracts<br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Show</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% for contract in contracts %}
+        <th scope="row">{{ contract.id }}</th>
+        <td>{{ contract.title }}</td>
+        <td><button type="button" class="btn btn-primary" value="{{ contract.id }}"onclick="edit_contract({{ contract.id }})">edit</button></td>
+        <td><button type="button" class="btn btn-primary" value="{{ contract.id }}"onclick="show_contract({{ contract.id }})">Show</button></td>
+        <td><button type="button" class="btn btn-primary" value="{{ contract.id }}"onclick="delete_contract({{ contract.id }})">Delete</button></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+</div>
+
+<!-- ########################################################   Ganarate Link   #################################################### -->
+
+<div id="Generate">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Title</th>
+        <th scope="col">Show</th>
+        <th scope="col">Select</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% for contract in contracts %}
+        <th scope="row">{{ contract.id }}</th>
+        <td>{{ contract.title }}</td>
+        <td><button type="button" class="btn btn-primary" value="{{ contract.id }}"onclick="show_contract({{ contract.title }})">Show</button></td>
+        <td><input type="checkbox" class="Contract_select_generate_link form-check-input" value="{{contract.id}}"></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address of the person who is going to sign the contract</label>
+    <input type="email" class="form-control" id="send_to_email" aria-describedby="emailHelp">
+    <div id="" class="form-text">the reciver will be asked to provide his email to open this contract</div>
+  </div>
+  <button type="button" class="btn btn-primary" onclick="genarate_link()">Genarate Link</button>
+
+
+
+  List Of My Links<br>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">User ID</th>
+        <th scope="col">Contracts ID's</th>
+        <th scope="col">Email</th>
+        <th scope="col">link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        {% for link in links %}
+        <th scope="row">{{ link.id }}</th>
+        <td>{{ link.user_id }}</td>
+        <td>{{ link.contracts_id }}"</td>
+        <td>{{link.email}}</td>
+        <td><a href="http://localhost:5000\sign\{{link.link_hash | safe}}" target="_blank">link</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+
